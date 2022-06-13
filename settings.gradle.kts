@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "TodoPetProject"
-include ':app'
+include(":app")
