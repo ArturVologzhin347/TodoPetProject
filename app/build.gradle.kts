@@ -1,48 +1,71 @@
+import extensions.impl
+import dependency.Dependencies
+import extensions.androidTestImpl
+import extensions.debugImpl
+import extensions.testImpl
+
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Plugin.ANDROID_APPLICATION)
+    id(Plugin.ANDROID_KOTLIN)
 }
 
 android {
-    compileSdk = 32
+    compileSdk = Config.COMPILE_SDK_VERSION
 
     defaultConfig {
-        applicationId = "com.vologzhin.todopetproject"
-        minSdk = 21
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Config.APPLICATION_ID
+        minSdk = Config.MIN_SDK_VERSION
+        targetSdk = Config.TARGET_SDK_VERSION
+        versionCode = Config.Version.CODE
+        versionName = Config.Version.NAME
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = Config.Support.TEST_INSTRUMENTATION_RUNNER
         vectorDrawables {
-            useSupportLibrary = true
+            useSupportLibrary = Config.Support.SUPPORT_LIBRARY_VECTOR_DRAWABLES
         }
     }
 
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        build.AppBuildType.ALL.forEach {
+            getByName(it.name) {
+                isDebuggable = it.isDebuggable
+                isJniDebuggable = it.isJniDebuggable
+                isMinifyEnabled = it.isMinifyEnabled
+                isShrinkResources = it.isShrinkResources
+                versionNameSuffix = it.versionNameSuffix
+                applicationIdSuffix = it.applicationIdSuffix
+
+                if (it.isMinifyEnabled) {
+                    proguardFiles(
+                        getDefaultProguardFile("proguard-android-optimize.txt"),
+                        "proguard-rules.pro"
+                    )
+                }
+            }
         }
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
+    tasks.withType().configureEach {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_11.toString()
+            kotlinOptions.freeCompilerArgs += listOf(
+                "-opt-in=kotlin.RequiresOptIn"
+            )
+        }
     }
+
     buildFeatures {
         compose = true
+        dataBinding = true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0-beta03"
+        kotlinCompilerExtensionVersion = dependency.Version.COMPOSE
     }
 
     packagingOptions {
@@ -53,16 +76,36 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.compose.ui:ui:1.2.0-beta03")
-    implementation("androidx.compose.material:material:1.2.0-beta03")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.2.0-beta03")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
-    implementation("androidx.activity:activity-compose:1.4.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.2.0-beta03")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.2.0-beta03")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.2.0-beta03")
+
+    with(Dependencies) {
+        impl(
+            CORE_KTX,
+            LIFECYCLE_RUNTIME,
+            COMPOSE_UI,
+            COMPOSE_MATERIAL,
+            COMPOSE_PREVIEW,
+            COMPOSE_ACTIVITY
+        )
+    }
+
+    with(Dependencies.Test) {
+        testImpl(
+            JUNIT
+        )
+    }
+
+    with(Dependencies.AndroidTest) {
+        androidTestImpl(
+            JUNIT_EXT,
+            JUNIT_COMPOSE,
+            ESPRESSO_CORE
+        )
+    }
+
+    with(Dependencies.Debug) {
+        debugImpl(
+            COMPOSE_TOOLING,
+            COMPOSE_MANIFEST
+        )
+    }
 }
