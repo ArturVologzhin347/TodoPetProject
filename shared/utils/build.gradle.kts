@@ -3,6 +3,10 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+android {
+    compileSdk = Config.COMPILE_SDK_VERSION
+}
+
 dependencies {
 
 //    implementation("androidx.core:core-ktx:1.7.0")
