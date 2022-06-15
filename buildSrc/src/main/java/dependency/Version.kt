@@ -10,4 +10,5 @@ object Version {
     const val ESPRESSO_CORE = "3.4.0"
     const val STRICT = "30.2.0"
     const val TIMBER = "5.0.1"
+    const val LEAK_CANARY = "2.9.1"
 }

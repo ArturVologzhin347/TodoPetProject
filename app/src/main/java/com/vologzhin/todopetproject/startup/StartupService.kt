@@ -35,7 +35,6 @@ internal class StartupService private constructor(private val steps: Array<Start
     companion object {
         private var appWasStarted = AtomicBoolean(false)
 
-
         /* Attention! Steps order matter! */
         fun fromSteps(vararg steps: StartupStep): StartupService {
             return StartupService(arrayOf(*steps))

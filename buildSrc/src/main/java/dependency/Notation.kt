@@ -18,6 +18,8 @@ object Notation {
     const val JUNIT_EXT = "androidx.test.ext:junit"
     const val JUNIT_COMPOSE = "androidx.compose.ui:ui-test-junit4"
 
+    const val LEAK_CANARY = "com.squareup.leakcanary:leakcanary-android"
+
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core"
 
     const val STRICT = "com.github.kirich1409:strict-mode-compat"

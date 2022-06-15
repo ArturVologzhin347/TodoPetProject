@@ -107,6 +107,7 @@ dependencies {
 
     with(Dependencies.Debug) {
         debugImpl(
+            LEAK_CANARY,
             COMPOSE_TOOLING,
             COMPOSE_MANIFEST
         )

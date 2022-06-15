@@ -7,6 +7,7 @@ object Dependencies {
     val LIFECYCLE_RUNTIME = Notation.LIFECYCLE_RUNTIME version Version.LIFECYCLE_RUNTIME
     val TIMBER = Notation.TIMBER version Version.TIMBER
 
+
     val COMPOSE_UI = Notation.COMPOSE_UI version Version.COMPOSE
     val COMPOSE_MATERIAL = Notation.COMPOSE_MATERIAL version Version.COMPOSE
     val COMPOSE_PREVIEW = Notation.COMPOSE_PREVIEW version Version.COMPOSE
@@ -26,6 +27,7 @@ object Dependencies {
     }
 
     object Debug {
+        val LEAK_CANARY = Notation.LEAK_CANARY version Version.LEAK_CANARY
         val COMPOSE_TOOLING = Notation.COMPOSE_TOOLING version Version.COMPOSE
         val COMPOSE_MANIFEST = Notation.COMPOSE_MANIFEST version Version.COMPOSE
     }
