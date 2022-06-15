@@ -8,4 +8,5 @@ object Version {
     const val JUNIT = "4.13.2"
     const val JUNIT_EXT = "1.1.3"
     const val ESPRESSO_CORE = "3.4.0"
+    const val STRICT = "30.2.0"
 }

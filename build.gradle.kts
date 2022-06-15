@@ -20,7 +20,7 @@ detekt {
     parallel = true
     debug = false
     allRules = true
-    config = files("$rootDir/.detekt/config.yml")
+    config = files("$rootDir/detekt/config.yml")
     ignoredBuildTypes = arrayListOf("release")
     basePath = projectDir.path
 }

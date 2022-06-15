@@ -21,4 +21,3 @@ dependencies {
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${PluginVersion.DETEKT}")
     implementation("com.diffplug.spotless:spotless-plugin-gradle:${PluginVersion.SPOTLESS}")
 }
-

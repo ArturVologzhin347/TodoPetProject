@@ -84,7 +84,9 @@ dependencies {
             COMPOSE_UI,
             COMPOSE_MATERIAL,
             COMPOSE_PREVIEW,
-            COMPOSE_ACTIVITY
+            COMPOSE_ACTIVITY,
+            STRICT,
+            STRICT_KTX
         )
     }
 

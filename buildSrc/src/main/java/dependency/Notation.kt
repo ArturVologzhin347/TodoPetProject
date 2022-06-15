@@ -17,4 +17,7 @@ object Notation {
     const val JUNIT_COMPOSE = "androidx.compose.ui:ui-test-junit4"
 
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core"
+
+    const val STRICT = "com.github.kirich1409:strict-mode-compat"
+    const val STRICT_KTX = "com.github.kirich1409:strict-mode-compat-ktx"
 }
