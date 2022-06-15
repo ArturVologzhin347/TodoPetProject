@@ -5,7 +5,6 @@ plugins {
 
     id("com.diffplug.spotless")
     id("io.gitlab.arturbosch.detekt")
-
 }
 
 buildscript {

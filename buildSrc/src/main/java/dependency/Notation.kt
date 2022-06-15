@@ -3,6 +3,8 @@ package dependency
 object Notation {
     const val CORE_KTX = "androidx.core:core-ktx"
     const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx"
+    const val TIMBER = "com.jakewharton.timber:timber"
+
 
     const val COMPOSE_UI = "androidx.compose.ui:ui"
     const val COMPOSE_MATERIAL = "androidx.compose.material:material"

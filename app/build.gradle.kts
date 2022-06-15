@@ -86,7 +86,8 @@ dependencies {
             COMPOSE_PREVIEW,
             COMPOSE_ACTIVITY,
             STRICT,
-            STRICT_KTX
+            STRICT_KTX,
+            TIMBER
         )
     }
 
