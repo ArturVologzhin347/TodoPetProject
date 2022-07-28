@@ -1,3 +1,6 @@
 package com.vologzhin.todopetproject.di
 
-annotation class AppScope()
+import javax.inject.Scope
+
+@Scope
+annotation class AppScope

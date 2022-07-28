@@ -7,6 +7,7 @@ import extensions.testImpl
 plugins {
     id(Plugin.ANDROID_APPLICATION)
     id(Plugin.ANDROID_KOTLIN)
+    id(Plugin.KOTLIN_KAPT)
 }
 
 android {
@@ -87,7 +88,8 @@ dependencies {
             COMPOSE_ACTIVITY,
             STRICT,
             STRICT_KTX,
-            TIMBER
+            TIMBER,
+            DAGGER
         )
     }
 
@@ -112,4 +114,6 @@ dependencies {
             COMPOSE_MANIFEST
         )
     }
+
+    kapt(Dependencies.Kapt.DAGGER_COMPILER())
 }

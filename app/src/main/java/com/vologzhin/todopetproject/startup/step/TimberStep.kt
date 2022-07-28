@@ -7,7 +7,7 @@ import timber.log.Timber
 
 class TimberStep : StartupStep {
 
-    override fun run(applicationContext: Context) {
+    override suspend fun run(applicationContext: Context) {
         if(BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }

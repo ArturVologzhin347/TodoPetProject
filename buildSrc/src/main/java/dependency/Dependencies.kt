@@ -7,6 +7,7 @@ object Dependencies {
     val LIFECYCLE_RUNTIME = Notation.LIFECYCLE_RUNTIME version Version.LIFECYCLE_RUNTIME
     val TIMBER = Notation.TIMBER version Version.TIMBER
 
+    val DAGGER = Notation.DAGGER version Version.DAGGER
 
     val COMPOSE_UI = Notation.COMPOSE_UI version Version.COMPOSE
     val COMPOSE_MATERIAL = Notation.COMPOSE_MATERIAL version Version.COMPOSE
@@ -15,6 +16,10 @@ object Dependencies {
 
     val STRICT = Notation.STRICT version Version.STRICT
     val STRICT_KTX = Notation.STRICT_KTX version Version.STRICT
+
+    object Kapt {
+        val DAGGER_COMPILER = Notation.DAGGER_COMPILER version Version.DAGGER
+    }
 
     object Test {
         val JUNIT = Notation.JUNIT version Version.JUNIT
@@ -31,4 +36,5 @@ object Dependencies {
         val COMPOSE_TOOLING = Notation.COMPOSE_TOOLING version Version.COMPOSE
         val COMPOSE_MANIFEST = Notation.COMPOSE_MANIFEST version Version.COMPOSE
     }
+
 }

@@ -11,10 +11,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.vologzhin.todopetproject.ui.theme.TodoPetProjectTheme
+import com.vologzhin.todopetproject.util.appComponent
 
 class MainActivity : ComponentActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        appComponent.inject(this)
+
+
         setContent {
             TodoPetProjectTheme {
                 // A surface container using the 'background' color from the theme

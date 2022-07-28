@@ -11,4 +11,5 @@ object Module {
         const val UI = ":shared:ui"
         const val UTILS = ":shared:utils"
     }
+
 }

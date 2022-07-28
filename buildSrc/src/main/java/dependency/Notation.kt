@@ -5,6 +5,8 @@ object Notation {
     const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx"
     const val TIMBER = "com.jakewharton.timber:timber"
 
+    const val DAGGER = "com.google.dagger:dagger"
+    const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler"
 
     const val COMPOSE_UI = "androidx.compose.ui:ui"
     const val COMPOSE_MATERIAL = "androidx.compose.material:material"
@@ -12,7 +14,6 @@ object Notation {
     const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose"
     const val COMPOSE_TOOLING = "androidx.compose.ui:ui-tooling"
     const val COMPOSE_MANIFEST = "androidx.compose.ui:ui-test-manifest"
-
 
     const val JUNIT = "junit:junit"
     const val JUNIT_EXT = "androidx.test.ext:junit"

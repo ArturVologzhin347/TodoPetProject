@@ -7,7 +7,7 @@ import com.vologzhin.todopetproject.startup.StartupStep
 
 internal class StrictModeStep : StartupStep {
 
-    override fun run(applicationContext: Context) {
+    override suspend fun run(applicationContext: Context) {
         initStrictMode(
             enable = BuildConfig.DEBUG,
             enableDefaults = false
@@ -18,7 +18,7 @@ internal class StrictModeStep : StartupStep {
                 network = true
                 customSlowCalls = true
                 unbufferedIo = true
-                penalty { log = true }
+                penalty { log = true } // TODO timber logging
             }
 
             vmPolicy {
@@ -33,7 +33,7 @@ internal class StrictModeStep : StartupStep {
                 untaggedSockets = true
                 credentialProtectedWhileLocked = true
                 implicitDirectBoot = true
-                penalty { log = true }
+                penalty { log = true } // TODO timber logging
             }
         }
     }

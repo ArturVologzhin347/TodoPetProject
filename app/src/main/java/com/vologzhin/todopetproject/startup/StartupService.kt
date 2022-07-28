@@ -1,6 +1,9 @@
 package com.vologzhin.todopetproject.startup
 
 import android.content.Context
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.runBlocking
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -18,15 +21,12 @@ internal class StartupService private constructor(private val steps: Array<Start
     You can invoke this method only one once.
     */
     fun run(applicationContext: Context) = runBlocking {
-        if (appWasStarted.get()) {
-            throw RuntimeException(
-                "App already started. Use Startup Service only once," +
-                    " while starting app."
-            )
+        check(!appWasStarted.get()) {
+            "App already started. Use Startup Service only once, while starting app"
         }
 
-        for (step: StartupStep in steps) {
-            step.run(applicationContext)
+        steps.forEach {
+            it.run(applicationContext)
         }
 
         appWasStarted.set(true)

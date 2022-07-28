@@ -5,5 +5,5 @@ import android.content.Context
 internal interface StartupStep {
 
     /* Invoke when app starting */
-    fun run(applicationContext: Context)
+    suspend fun run(applicationContext: Context)
 }
