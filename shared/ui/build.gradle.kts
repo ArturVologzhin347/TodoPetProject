@@ -3,6 +3,9 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+android {
+    compileSdk = Config.COMPILE_SDK_VERSION
+}
 
 dependencies {
 

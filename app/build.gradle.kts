@@ -7,6 +7,7 @@ import extensions.testImpl
 plugins {
     id(Plugin.ANDROID_APPLICATION)
     id(Plugin.ANDROID_KOTLIN)
+    id(Plugin.KOTLIN_KAPT)
 }
 
 android {
@@ -84,7 +85,11 @@ dependencies {
             COMPOSE_UI,
             COMPOSE_MATERIAL,
             COMPOSE_PREVIEW,
-            COMPOSE_ACTIVITY
+            COMPOSE_ACTIVITY,
+            STRICT,
+            STRICT_KTX,
+            TIMBER,
+            DAGGER
         )
     }
 
@@ -104,8 +109,11 @@ dependencies {
 
     with(Dependencies.Debug) {
         debugImpl(
+            LEAK_CANARY,
             COMPOSE_TOOLING,
             COMPOSE_MANIFEST
         )
     }
+
+    kapt(Dependencies.Kapt.DAGGER_COMPILER())
 }

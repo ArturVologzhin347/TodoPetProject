@@ -6,7 +6,7 @@ pluginManagement {
     }
 }
 
-@Suppress("UnstableApiUsage") // Suppress @Incubating, don't worry
+@Suppress("UnstableApiUsage") // Suppress @Incubating
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
